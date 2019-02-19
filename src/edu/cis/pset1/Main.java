@@ -5,7 +5,9 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-//        DNAStrand myDna = new DNAStrand();
+
+//     UNCOMMENT THE FOLLOWING CODE WHEN YOU'RE READY TO TEST
+        //        DNAStrand myDna = new DNAStrand();
 //        Mrna myMRNA = new Mrna();
 //        myDna.readDNA("dnaSequence");
 //
