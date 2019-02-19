@@ -1,6 +1,4 @@
-package edu.cis.pset1;
-
-import java.util.ArrayList;
+package edu.cis.project1c;
 
 public class Main {
 
