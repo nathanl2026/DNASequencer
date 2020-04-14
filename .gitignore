@@ -14,7 +14,7 @@
 # Generated files
 bin/
 gen/
-out/
+#out/
 
 # Gradle files
 .gradle/
@@ -75,7 +75,7 @@ gen-external-apklibs
 ## Plugin-specific files:
 
 # IntelliJ
-/out/
+#/out/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
