@@ -17,10 +17,10 @@ public class Main
          */
 //     UNCOMMENT THE FOLLOWING CODE WHEN YOU'RE READY TO TEST
 
-//        DNAStrand myDna = new DNAStrand();
+        DNAStrand myDna = new DNAStrand();
 //        Mrna myMRNA = new Mrna();
 //        Ribosome myRib = new Ribosome();
-//        myDna.readDNA("dnaSequence");
+        myDna.readDNA("dnaSequence");
 //
 //        myMRNA.createCopy(myDna.getDnaSequence());
 //        ArrayList<String> protein = myRib.createProtein(myMRNA.getMessengerDna());
