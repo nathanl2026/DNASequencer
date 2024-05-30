@@ -33,17 +33,7 @@ public class DNAStrand {
     public void createCompliment() {
         for (int i = 0; i < dnaSequenceList.size(); i++) {
             String dnaNucleotide = dnaSequenceList.get(i);
-            StringBuilder nucleotideCompliment = new StringBuilder();
-            for (int j = 0; j < dnaNucleotide.length(); j++) {
-                if (dnaNucleotide.charAt(j) == 'a') {
-                    nucleotideCompliment.append('t');}
-                else if (dnaNucleotide.charAt(j) == 't') {
-                    nucleotideCompliment.append('a');}
-                else if (dnaNucleotide.charAt(j) == 'c') {
-                    nucleotideCompliment.append('g');}
-                else if (dnaNucleotide.charAt(j) == 'g') {
-                    nucleotideCompliment.append('c');}
-            }
+            String nucleotideCompliment = getString(dnaNucleotide);
             complimentList.add(nucleotideCompliment.toString());
         }
         //loop through dnaSequenceList
@@ -53,6 +43,22 @@ public class DNAStrand {
         //add the new compliment string into complimentList
 
     }
+
+    public static String getString(String dnaNucleotide) {
+        String nucleotideCompliment = "";
+        for (int j = 0; j < dnaNucleotide.length(); j++) {
+            if (dnaNucleotide.charAt(j) == 'a') {
+                nucleotideCompliment += 't';}
+            else if (dnaNucleotide.charAt(j) == 't') {
+                nucleotideCompliment += 'a';}
+            else if (dnaNucleotide.charAt(j) == 'c') {
+                nucleotideCompliment += 'g';}
+            else if (dnaNucleotide.charAt(j) == 'g') {
+                nucleotideCompliment += 'c';}
+        }
+        return nucleotideCompliment;
+    }
+
     public ArrayList<String> getCompliment(){
         // System.out.println(complimentList);
         return complimentList; //return compliment list
