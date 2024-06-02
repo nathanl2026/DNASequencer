@@ -146,35 +146,7 @@ public class GeneFinder
         int end = start + gene.length();
         return new Coordinate(start, end);
     }
-//    public void geneFinder(String DNA, int minlen) {
-//        List<List<Object>> finalOutputList = new ArrayList<>(); //make a list to hold the lists of finalProtein (list in a list)
-//        //at end of code change return finalProtein; to finalOutputList.add(finalProtein) and return the finalOutputList instead
-//        List<Object> finalProtein = new ArrayList<>();
-//        String longerORF = "";
-//        ArrayList<String> bothStrands = findORFBothStrands(DNA);
-//        if (bothStrands.get(0).length() > bothStrands.get(1).length()){
-//            longerORF = bothStrands.get(0);
-//        }
-//        else {
-//            longerORF = bothStrands.get(1);
-//        }
-//        ArrayList<String> myArrayList = oneFrame(DNA);
-//        String gene = myArrayList.toString();
-//        Coordinate coordinates = getCoordinates(gene, longerORF);
-//        int start = coordinates.getStart();
-//        int end = coordinates.getEnd();
-//        ArrayList<String> orfProtein = new ArrayList<>();
-//        orfProtein.add(longerORF);
-//        ArrayList<String> ORF = Ribosome.createProtein(orfProtein);
-//        String proteinSequence = ORF.toString();
-//        finalProtein.add(start);
-//        finalProtein.add(end);
-//        finalProtein.add(proteinSequence);
-//        finalOutputList.add(finalProtein);
-//        System.out.println(finalOutputList);
-////        return finalOutputList;
-//    }
-    public void geneFinder(String DNA, int minLen) {
+    public List<List<Object>> geneFinder(String DNA, int minLen) {
         List<List<Object>> finalOutputList = new ArrayList<>();
 
         ArrayList<String> orfs = findORFBothStrands(DNA);
@@ -198,7 +170,6 @@ public class GeneFinder
                 finalOutputList.add(finalProtein);
             }
         }
-        System.out.println(finalOutputList);
-//        return finalOutputList;
+        return finalOutputList;
     }
 }
