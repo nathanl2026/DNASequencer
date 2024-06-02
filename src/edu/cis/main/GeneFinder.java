@@ -146,22 +146,20 @@ public class GeneFinder
         int end = start + gene.length();
         return new Coordinate(start, end);
     }
-    public List<List<Object>> geneFinder(String DNA, int minLen) {
-        List<List<Object>> finalOutputList = new ArrayList<>();
-
+    public ArrayList<ArrayList<Object>> geneFinder(String DNA, int minLen) {
+        ArrayList<ArrayList<Object>> finalOutputList = new ArrayList<>();
         ArrayList<String> orfs = findORFBothStrands(DNA);
 
         for (String orf : orfs) {
             if (orf.length() > minLen) {
-                List<Object> finalProtein = new ArrayList<>();
+                ArrayList<Object> finalProtein = new ArrayList<>();
                 Coordinate coordinates = getCoordinates(orf, DNA);
                 int start = coordinates.getStart();
                 int end = coordinates.getEnd();
 
                 ArrayList<String> orfProtein = new ArrayList<>();
                 orfProtein.add(orf);
-                ArrayList<String> protein = Ribosome.createProtein(orfProtein);
-                String proteinSequence = protein.toString();
+                String proteinSequence = Ribosome.createProtein(orfProtein).get(0);
 
                 finalProtein.add(start);
                 finalProtein.add(end);
