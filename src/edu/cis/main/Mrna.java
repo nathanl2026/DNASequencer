@@ -29,7 +29,7 @@ public class Mrna {
             // add the copy to copyList
     }
 
-    public ArrayList<String> getMessengerDNA() {
+    public ArrayList<String> getMessengerDna() {
         return messengerDNA;
     }
 }

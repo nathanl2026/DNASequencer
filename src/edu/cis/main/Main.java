@@ -1,57 +1,26 @@
 package edu.cis.main;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
 
-public class Main
-{
+public class Main {
+    public static void main(String[] args) {
+        DNAStrand dnaStrand = new DNAStrand();
+        dnaStrand.readDNA("X73525.fna");
+        dnaStrand.createCompliment();
+        ArrayList<String> dnaSequence = dnaStrand.getDnaSequence();
 
-    public static void main(String[] args)
-    {
+        Mrna mrna = new Mrna();
+        mrna.createCopy(dnaSequence);
+        ArrayList<String> messengerDna = mrna.getMessengerDna();
 
-        /*
-         * PART 1a and 1b
-         */
-//     UNCOMMENT THE FOLLOWING CODE WHEN YOU'RE READY TO TEST
+        ArrayList<String> aminoAcids = Ribosome.createProtein(messengerDna);
 
-        DNAStrand myDna = new DNAStrand();
-        Mrna myMRNA = new Mrna();
-        Ribosome myRib = new Ribosome();
-        myDna.readDNA("dnaSequence");
-//
-//        myMRNA.createCopy(myDna.getDnaSequence());
-//        ArrayList<String> protein = myRib.createProtein(myMRNA.getMessengerDna());
-//        for (String section : protein)
-//        {
-//            System.out.println(section);
-//        }
+        for (String aminoAcid : aminoAcids) {
+            System.out.println(aminoAcid);
+        }
 
-
-        /*
-         * PART 2
-         */
-
-        // READ the file and turn it into one long DNA string
-//        GeneFinder myFinder = new GeneFinder();
-//        try {
-//            String X73525 = "";
-//            Scanner sc = new Scanner(new File("X73525.fna"));
-//            while(sc.hasNext())
-//            {
-//                X73525 += sc.next();
-//            }
-//            longestORFNonCoding(X73525, 50);  # not real java sytanx
-//        }
-//        catch (Exception err)
-//        {
-//
-//        }
+        // Call the geneFinder method
+        GeneFinder geneFinder = new GeneFinder();
+        geneFinder.geneFinder(DNAStrand.getString(String.valueOf(dnaSequence)), 3);
     }
-
-
-
 }
-

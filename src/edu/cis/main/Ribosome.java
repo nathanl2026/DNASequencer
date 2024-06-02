@@ -4,77 +4,57 @@ import java.util.ArrayList;
 
 public class Ribosome {
 
-    public ArrayList createProtein(ArrayList copiedDNA) {
-         ArrayList<String> aminoAcids = new ArrayList<>();
-            for (int i = 0; i < copiedDNA.size(); i++) {
-                if (copiedDNA.get(i) == "uuu" || copiedDNA.get(i) == "uuc") {
-                    aminoAcids.add("Phenylalanine");
-                }
-                else if (copiedDNA.get(i) == "uua" || copiedDNA.get(i) == "uug" || copiedDNA.get(i) == "cuu" || copiedDNA.get(i) == "cuc"
-                        || copiedDNA.get(i) == "cua" || copiedDNA.get(i) == "cug") {
-                    aminoAcids.add("Leucine");
-                }
-                else if (copiedDNA.get(i) == "auu" || copiedDNA.get(i) == "auc" || copiedDNA.get(i) == "aua") {
-                    aminoAcids.add("Isoleucine");
-                }
-                else if (copiedDNA.get(i) == "aug") {
-                    aminoAcids.add("Methionine");
-                }
-                else if (copiedDNA.get(i) == "guu" || copiedDNA.get(i) == "guc" || copiedDNA.get(i) == "gua" || copiedDNA.get(i) == "gug") {
-                    aminoAcids.add("Valine");
-                }
-                else if (copiedDNA.get(i) == "ucu" || copiedDNA.get(i) == "ucc" || copiedDNA.get(i) == "uca" || copiedDNA.get(i) == "ucg" ||
-                        copiedDNA.get(i) == "agu" || copiedDNA.get(i) == "agc") {
-                    aminoAcids.add("Serine");
-                }
-                else if (copiedDNA.get(i) == "ccu" || copiedDNA.get(i) == "ccc" || copiedDNA.get(i) == "cca" || copiedDNA.get(i) == "ccg") {
-                    aminoAcids.add("Proline");
-                }
-                else if (copiedDNA.get(i) == "acu" || copiedDNA.get(i) == "acc" || copiedDNA.get(i) == "aca" || copiedDNA.get(i) == "acg") {
-                    aminoAcids.add("Threonine");
-                }
-                else if (copiedDNA.get(i) == "gcu" || copiedDNA.get(i) == "gcc" || copiedDNA.get(i) == "gca" || copiedDNA.get(i) == "gcg") {
-                    aminoAcids.add("Alanine");
-                }
-                else if (copiedDNA.get(i) == "uau" || copiedDNA.get(i) == "uac") {
-                    aminoAcids.add("Tyrosine");
-                }
-                else if (copiedDNA.get(i) == "cau" || copiedDNA.get(i) == "cac") {
-                    aminoAcids.add("Histidine");
-                }
-                else if (copiedDNA.get(i) == "caa" || copiedDNA.get(i) == "cag") {
-                    aminoAcids.add("Glutamine");
-                }
-                else if (copiedDNA.get(i) == "aau" || copiedDNA.get(i) == "aac") {
-                    aminoAcids.add("Asparagine");
-                }
-                else if (copiedDNA.get(i) == "aaa" || copiedDNA.get(i) == "aag") {
-                    aminoAcids.add("Lysine");
-                }
-                else if (copiedDNA.get(i) == "gau" || copiedDNA.get(i) == "gac") {
-                    aminoAcids.add("Aspartic acid");
-                }
-                else if (copiedDNA.get(i) == "gaa" || copiedDNA.get(i) == "gag") {
-                    aminoAcids.add("Glutamic acid");
-                }
-                else if (copiedDNA.get(i) == "ugu" || copiedDNA.get(i) == "ugc") {
-                    aminoAcids.add("Cysteine");
-                }
-                else if (copiedDNA.get(i) == "ugg") {
-                    aminoAcids.add("Tryptophan");
-                }
-                else if (copiedDNA.get(i) == "cgu" || copiedDNA.get(i) == "cgc" || copiedDNA.get(i) == "cga" ||
-                        copiedDNA.get(i) == "cgg" || copiedDNA.get(i) == "aga" || copiedDNA.get(i) == "agg") {
-                    aminoAcids.add("Arginine");
-                }
-                else if (copiedDNA.get(i) == "ggu" || copiedDNA.get(i) == "ggc" || copiedDNA.get(i) == "gga" || copiedDNA.get(i) == "ggg") {
-                    aminoAcids.add("Glycine");
-                }
+    public static ArrayList<String> createProtein(ArrayList<String> copiedDNA) {
+        ArrayList<String> aminoAcids = new ArrayList<>();
+
+        for (int i = 0; i < copiedDNA.size(); i++) {
+            String codon = copiedDNA.get(i).toLowerCase();
+
+            if (codon.equals("uuu") || codon.equals("uuc")) {
+                aminoAcids.add("Phenylalanine");
+            } else if (codon.equals("uua") || codon.equals("uug") || codon.equals("cuu") || codon.equals("cuc") ||
+                    codon.equals("cua") || codon.equals("cug")) {
+                aminoAcids.add("Leucine");
+            } else if (codon.equals("auu") || codon.equals("auc") || codon.equals("aua")) {
+                aminoAcids.add("Isoleucine");
+            } else if (codon.equals("aug")) {
+                aminoAcids.add("Methionine");
+            } else if (codon.equals("guu") || codon.equals("guc") || codon.equals("gua") || codon.equals("gug")) {
+                aminoAcids.add("Valine");
+            } else if (codon.equals("ucu") || codon.equals("ucc") || codon.equals("uca") || codon.equals("ucg") ||
+                    codon.equals("agu") || codon.equals("agc")) {
+                aminoAcids.add("Serine");
+            } else if (codon.equals("ccu") || codon.equals("ccc") || codon.equals("cca") || codon.equals("ccg")) {
+                aminoAcids.add("Proline");
+            } else if (codon.equals("acu") || codon.equals("acc") || codon.equals("aca") || codon.equals("acg")) {
+                aminoAcids.add("Threonine");
+            } else if (codon.equals("gcu") || codon.equals("gcc") || codon.equals("gca") || codon.equals("gcg")) {
+                aminoAcids.add("Alanine");
+            } else if (codon.equals("uau") || codon.equals("uac")) {
+                aminoAcids.add("Tyrosine");
+            } else if (codon.equals("cau") || codon.equals("cac")) {
+                aminoAcids.add("Histidine");
+            } else if (codon.equals("caa") || codon.equals("cag")) {
+                aminoAcids.add("Glutamine");
+            } else if (codon.equals("aau") || codon.equals("aac")) {
+                aminoAcids.add("Asparagine");
+            } else if (codon.equals("aaa") || codon.equals("aag")) {
+                aminoAcids.add("Lysine");
+            } else if (codon.equals("gau") || codon.equals("gac")) {
+                aminoAcids.add("Aspartic acid");
+            } else if (codon.equals("gaa") || codon.equals("gag")) {
+                aminoAcids.add("Glutamic acid");
+            } else if (codon.equals("ugu") || codon.equals("ugc")) {
+                aminoAcids.add("Cysteine");
+            } else if (codon.equals("ugg")) {
+                aminoAcids.add("Tryptophan");
+            } else if (codon.equals("cgu") || codon.equals("cgc") || codon.equals("cga") ||
+                    codon.equals("cgg") || codon.equals("aga") || codon.equals("agg")) {
+                aminoAcids.add("Arginine");
+            } else if (codon.equals("ggu") || codon.equals("ggc") || codon.equals("gga") || codon.equals("ggg")) {
+                aminoAcids.add("Glycine");
             }
-         //for each codon(String, aka group of 3) in copiedDNA
-            // if codon equals "uuu", then add "Phenylalanine" to aminos
-            // (add corresponding amino of each codon)
-            // if codon equals "uuc", then add "Phenylalaline" to aminos
+        }
         return aminoAcids;
     }
 }
